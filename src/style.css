@@ -543,18 +543,103 @@ main {
     opacity: 1;
 }
 
-.logo, .resume-link, .mailto-link, .social-media-links {
-  position: absolute;
-  color: hsl(var(--text-primary));
+.logo,
+.resume-link,
+.mailto-link,
+.social-media-links {
+    position: absolute;
+    color: hsl(var(--text-primary));
 }
 
 .logo {
-  top: var(--section-padding);
-  left: var(--section-padding);
-  font-size: 2rem;
-  font-weight: 800;
+    top: var(--section-padding);
+    left: var(--section-padding);
+    font-size: 2rem;
+    font-weight: 800;
 }
 
-.logo.show, .resume-link.show {
-  animation: fade-in 800ms ease-in;
+.logo.show,
+.resume-link.show {
+    animation: fade-in 800ms ease-in;
+}
+.mailto-link {
+    bottom: var(--section-padding);
+    left: var(--section-padding);
+    writing-mode: sideways-lr;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: transform 200ms ease;
+}
+
+.mailto-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transform: translateY(-4px);
+}
+
+.resume-link {
+    right: var(--section-padding);
+    top: var(--section-padding);
+    text-decoration: none;
+    border: 1px solid hsl(var(--text-primary));
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px hsla(var(--text-primary), 0.3);
+    font-weight: 300;
+    transition: transform 200ms ease;
+}
+
+.resume-link:hover {
+    transform: scale(1.1);
+    filter: contrast(200%);
+}
+
+.mailto-link.show,
+.social-media-links.show {
+    animation-delay: 1000ms;
+}
+.social-media-links {
+    bottom: var(--section-padding);
+    right: var(--section-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.socials-link {
+  color: hsl(var(--text-primary));
+  display: grid;
+  align-content: center;
+  transition: transform 200ms ease;
+}
+
+.socials-link:hover {
+  transform: translateY(-4px);
+}
+
+.socials-link svg {
+  width: 1.5rem;
+  aspect-ratio: 1;
+}
+/* ?????? */
+.scroll-down-icon {
+  color: hsl(var(--text-primary));
+  position: absolute;
+  bottom: var(--section-padding);
+  left: 50%;
+  transform: translateX(-50%);
+  filter: brightness(50%);
+  width: 3rem;
+  aspect-ratio: 1;
+}
+
+.light .scroll-down-icon {
+  filter: brightness(100%);
+}
+
+.scroll-down-icon.show {
+  animation: fade-in 500ms forwards, up-and-down 700ms ease-in-out alternate infinite;
+  animation-composition: add;
+  animation-delay: 1500ms, 2000ms;
 }
